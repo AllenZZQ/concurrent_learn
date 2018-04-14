@@ -1,19 +1,16 @@
 package java_concurrency_in_practice.chapter01;
 
+import junit.framework.TestCase;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Test01 {
-    public static void main(String[] args) {
-        Test01 test01 = new Test01();
-        test01();
-        test01.test02();
-    }
+public class Test extends TestCase {
 
     /**
      * 锁住某对象，谁执行wait、notify、notifAll，否则报错
      */
-    private void test02() {
+    public void test02() {
         synchronized (this) {
             try {
                 System.out.println("before wait");
@@ -31,7 +28,7 @@ public class Test01 {
     /**
      * 定时任务，延迟1秒，每隔2秒执行
      */
-    private static void test01() {
+    public static void test01() {
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
